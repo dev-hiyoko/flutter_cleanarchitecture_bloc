@@ -1,8 +1,5 @@
 # flutter cleanarchitecture bloc sample
 
-[//]: # (todo 環境変数)
-[//]: # (todo icon)
-[//]: # (todo splash)
 [//]: # (todo 多言語)
 [//]: # (todo router)
 [//]: # (todo ダークモード)
@@ -13,6 +10,7 @@
 [//]: # (todo Analytics)
 [//]: # (todo shared_preferences ローカルデータ)
 [//]: # (todo DateFormat)
+[//]: # (todo 環境変数-icon-splash)
 
 ## フォルダー構成
 
@@ -41,3 +39,12 @@ lib/
 │       └── counter_page.dart               // カウンター画面のUIを定義
 └── main.dart                               // アプリのエントリーポイント
 ```
+
+## 最初にやること
+
+このリポジトリではやらないので、アプリを作り出す前に行うべきもの  
+
+1. 環境を分ける
+
+   flavor + icon + splash + firebaseの設定を分けるように設定する  
+
