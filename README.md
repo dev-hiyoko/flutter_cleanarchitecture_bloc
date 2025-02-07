@@ -1,8 +1,23 @@
 # flutter cleanarchitecture bloc sample
 
+[//]: # (todo 環境変数)
+[//]: # (todo icon)
+[//]: # (todo splash)
+[//]: # (todo 多言語)
+[//]: # (todo router)
+[//]: # (todo ダークモード)
+[//]: # (todo primaryなどの色の設定)
+[//]: # (todo 文字サイズ＋フォント)
+[//]: # (todo Lint/Analyzer＋ci)
+[//]: # (todo firebase)
+[//]: # (todo Analytics)
+[//]: # (todo shared_preferences ローカルデータ)
+[//]: # (todo DateFormat)
+
 ## フォルダー構成
 
 ```text
+assets/                                     // 画像や動画等を管理
 lib/
 ├── data/                                   // データ層。データ取得・保存の具体的な実装を担当
 │   ├── repositories/                       // Repositoryの具象実装を格納
