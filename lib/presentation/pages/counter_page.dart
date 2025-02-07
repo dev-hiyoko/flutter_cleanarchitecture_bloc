@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter_bloc.dart';
-import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter_event.dart';
-import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter_state.dart';
+import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter/counter_bloc.dart';
+import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter/counter_event.dart';
+import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter/counter_state.dart';
+import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/theme/theme_event.dart';
+import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/theme/theme_bloc.dart';
 import 'package:flutter_cleanarchitecture_bloc/presentation/widgets/button/add.dart';
 import 'package:flutter_cleanarchitecture_bloc/presentation/widgets/button/remove.dart';
 
@@ -23,11 +25,11 @@ class CounterPage extends StatelessWidget {
             if (state is CounterInitial) {
               return Text(
                   AppLocalizations.of(context).hello("count", 0),
-                  style: TextStyle(fontSize: 24));
+                  style: Theme.of(context).textTheme.bodyLarge);
             } else if (state is CounterValue) {
               return Text(
                 AppLocalizations.of(context).hello("count", state.value),
-                style: TextStyle(fontSize: 24));
+                style: Theme.of(context).textTheme.bodyLarge);
             }
             return Container();
           },
@@ -43,6 +45,13 @@ class CounterPage extends StatelessWidget {
           AddButton(onPressed: () {
             BlocProvider.of<CounterBloc>(context).add(IncrementCounterEvent());
           },),
+          SizedBox(width: 10),
+          FloatingActionButton(
+            onPressed: () {
+              BlocProvider.of<ThemeBloc>(context).add(ToggleThemeEvent());
+            },
+            child: Icon(Icons.dark_mode),
+          ),
         ],
       ),
     );

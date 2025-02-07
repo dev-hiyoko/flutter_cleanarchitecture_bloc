@@ -1,13 +1,13 @@
 # flutter cleanarchitecture bloc sample
 
 [//]: # (todo router)
-[//]: # (todo ダークモード)
+[//]: # (todo entity + usecaseの作成)
+[//]: # (todo shared_preferences ローカルデータ)
 [//]: # (todo primaryなどの色の設定)
-[//]: # (todo 文字サイズ＋フォント)
+[//]: # (todo 文字サイズ＋フォント+フォントfimily フォントfimilyに関してはローカライズ毎に)
 [//]: # (todo Lint/Analyzer＋ci)
 [//]: # (todo firebase)
-[//]: # (todo Analytics)
-[//]: # (todo shared_preferences ローカルデータ)
+[//]: # (todo Analytics + fmt)
 [//]: # (todo DateFormat)
 [//]: # (todo 環境変数-icon-splash)
 
