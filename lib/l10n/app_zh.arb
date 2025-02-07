@@ -1,0 +1,14 @@
+{
+  "@@locale":"zh",
+  "title": "簡潔的架構",
+  "hello": "你好 {count}",
+  "@hello": {
+    "description": "welcome message with count",
+    "placeholders":{
+      "name":{
+        "description" : "count",
+        "example" : "100"
+      }
+    }
+  }
+}

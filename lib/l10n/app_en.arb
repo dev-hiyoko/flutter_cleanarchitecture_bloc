@@ -1,0 +1,14 @@
+{
+  "@@locale":"en",
+  "title": "clean architecture",
+  "hello": "hello {count}",
+  "@hello": {
+    "description": "welcome message with count",
+    "placeholders":{
+      "name":{
+        "description" : "count",
+        "example" : "100"
+      }
+    }
+  }
+}

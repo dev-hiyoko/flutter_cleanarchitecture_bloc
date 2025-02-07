@@ -1,6 +1,5 @@
 # flutter cleanarchitecture bloc sample
 
-[//]: # (todo 多言語)
 [//]: # (todo router)
 [//]: # (todo ダークモード)
 [//]: # (todo primaryなどの色の設定)
@@ -17,6 +16,9 @@
 ```text
 assets/                                     // 画像や動画等を管理
 lib/
+├── core/                                   // 共通の定義や定数などを格納
+│   ├── constants/                          // 定数を管理
+│   └── utils/                              // ユーティリティ関数（例: 日付処理など）
 ├── data/                                   // データ層。データ取得・保存の具体的な実装を担当
 │   ├── repositories/                       // Repositoryの具象実装を格納
 │   │   └── counter_repository_impl.dart
@@ -40,7 +42,18 @@ lib/
 └── main.dart                               // アプリのエントリーポイント
 ```
 
-## 最初にやること
+## 初期設定
+
+```shell
+make init
+make gen
+```
+
+## 注意
+
+- l10nファイルを編集する場合、[readme](lib/l10n/README.md)を読むこと
+
+## アプリ制作時、最初にやること
 
 このリポジトリではやらないので、アプリを作り出す前に行うべきもの  
 
