@@ -1,16 +1,28 @@
-# flutter_cleanarchitecture_bloc
+# flutter cleanarchitecture bloc sample
 
-clean architecture bloc sample.
+## フォルダー構成
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+lib/
+├── data/                                   // データ層。データ取得・保存の具体的な実装を担当
+│   ├── repositories/                       // Repositoryの具象実装を格納
+│   │   └── counter_repository_impl.dart
+│   └── data_sources/                       // データのソース（ローカルDB、APIなど）を管理
+│       └── counter_data_source.dart
+├── domain/                                 // ドメイン層。アプリのビジネスルールを定義
+│   ├── repositories/                       // リポジトリのインターフェースを管理
+│   │   └── counter_repository.dart
+│   ├── entities/                           // アプリ内のエンティティ（データ構造）を管理
+│   │   └── counter.dart
+│   └── usecases/                           // ユースケースを管理
+│       └── increment_counter.dart
+├── presentation/                           // 表示層。UIおよび状態管理を担当
+│   ├── bloc/                               // BLoCによる状態管理を実装
+│   │   └ counter/
+│   │       ├── counter_bloc.dart           // カウント操作のビジネスロジック（BLoC）
+│   │       ├── counter_event.dart          // CounterBlocで使用するイベントを定義
+│   │       └── counter_state.dart          // CounterBlocの状態を定義
+│   └── pages/                              // UI構成を管理
+│       └── counter_page.dart               // カウンター画面のUIを定義
+└── main.dart                               // アプリのエントリーポイント
+```
