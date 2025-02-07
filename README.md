@@ -31,14 +31,17 @@ lib/
 │   │   └── counter.dart
 │   └── usecases/                           // ユースケースを管理
 │       └── increment_counter.dart
+├── domain/                                 // localize
 ├── presentation/                           // 表示層。UIおよび状態管理を担当
 │   ├── bloc/                               // BLoCによる状態管理を実装
 │   │   └ counter/
 │   │       ├── counter_bloc.dart           // カウント操作のビジネスロジック（BLoC）
 │   │       ├── counter_event.dart          // CounterBlocで使用するイベントを定義
 │   │       └── counter_state.dart          // CounterBlocの状態を定義
-│   └── pages/                              // UI構成を管理
-│       └── counter_page.dart               // カウンター画面のUIを定義
+│   ├── pages/                              // UI構成を管理
+│   │   └── counter_page.dart               // カウンター画面のUIを定義
+│   └── widgets/                            // 共通ウィジェットを管理
+├── app.dart                                // アプリのviewポイント
 └── main.dart                               // アプリのエントリーポイント
 ```
 

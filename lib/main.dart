@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cleanarchitecture_bloc/app.dart';
-import 'package:flutter_cleanarchitecture_bloc/domain/repositories/theme_repository_impl.dart';
+import 'package:flutter_cleanarchitecture_bloc/data/repositories/theme_repository_impl.dart';
 import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/theme/theme_bloc.dart';
 import 'package:flutter_cleanarchitecture_bloc/presentation/bloc/counter/counter_bloc.dart';
-import 'package:flutter_cleanarchitecture_bloc/domain/repositories/counter_repository_impl.dart';
+import 'package:flutter_cleanarchitecture_bloc/data/repositories/counter_repository_impl.dart';
 
 void main() => runApp(MyApp());
 
