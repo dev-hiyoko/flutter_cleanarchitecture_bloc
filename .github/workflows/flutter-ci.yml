@@ -17,6 +17,8 @@ jobs:
       - uses: ./.github/build
       - name: Install packages
         run: flutter pub get
+      - name: Code gen l10n
+        run: flutter gen-l10n  --no-nullable-getter
       - name: Format
         run: dart format $(find lib -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "oss_licenses.dart" \) ) --set-exit-if-changed
       - name: Linter
