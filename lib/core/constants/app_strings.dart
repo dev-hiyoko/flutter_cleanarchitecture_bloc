@@ -4,5 +4,4 @@ class AppStrings {
     'ja': 'ja',
     'zh': 'zh',
   };
-
 }

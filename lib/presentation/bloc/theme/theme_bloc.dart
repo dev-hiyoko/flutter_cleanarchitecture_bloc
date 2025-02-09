@@ -10,7 +10,8 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc(this.repository) : super(ThemeInitial()) {
     on<ToggleThemeEvent>((event, emit) {
       final currentTheme = repository.getTheme();
-      ThemeMode theme = currentTheme == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+      ThemeMode theme =
+          currentTheme == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
       repository.updateTheme(theme);
       emit(ThemeValue(theme));
     });

@@ -23,13 +23,12 @@ class CounterPage extends StatelessWidget {
         child: BlocBuilder<CounterBloc, CounterState>(
           builder: (context, state) {
             if (state is CounterInitial) {
-              return Text(
-                  AppLocalizations.of(context).hello("count", 0),
+              return Text(AppLocalizations.of(context).hello("count", 0),
                   style: Theme.of(context).textTheme.bodyLarge);
             } else if (state is CounterValue) {
               return Text(
-                AppLocalizations.of(context).hello("count", state.value),
-                style: Theme.of(context).textTheme.bodyLarge);
+                  AppLocalizations.of(context).hello("count", state.value),
+                  style: Theme.of(context).textTheme.bodyLarge);
             }
             return Container();
           },
@@ -38,13 +37,19 @@ class CounterPage extends StatelessWidget {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          RemoveButton(onPressed: () {
-            BlocProvider.of<CounterBloc>(context).add(DecrementCounterEvent());
-          },),
+          RemoveButton(
+            onPressed: () {
+              BlocProvider.of<CounterBloc>(context)
+                  .add(DecrementCounterEvent());
+            },
+          ),
           SizedBox(width: 10),
-          AddButton(onPressed: () {
-            BlocProvider.of<CounterBloc>(context).add(IncrementCounterEvent());
-          },),
+          AddButton(
+            onPressed: () {
+              BlocProvider.of<CounterBloc>(context)
+                  .add(IncrementCounterEvent());
+            },
+          ),
           SizedBox(width: 10),
           FloatingActionButton(
             onPressed: () {

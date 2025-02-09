@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RemoveButton extends StatelessWidget {
-  const RemoveButton({
-    super.key,
-    required this.onPressed
-  });
+  const RemoveButton({super.key, required this.onPressed});
 
   final Function()? onPressed;
 
