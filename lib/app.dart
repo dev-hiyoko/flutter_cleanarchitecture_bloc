@@ -9,7 +9,13 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.watch<ThemeBloc>().state.value;
+    // ThemeBloc
+    final themeMode = context.select<ThemeBloc, ThemeMode?>(
+          (bloc) {
+        final state = bloc.state;
+        return state.value;
+      },
+    );
 
     return MaterialApp(
       darkTheme: ThemeData(
@@ -22,7 +28,7 @@ class AppView extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,
       ),
-      themeMode: theme,
+      themeMode: themeMode,
 
       // localization
       localizationsDelegates: AppLocalizations.localizationsDelegates,

@@ -7,13 +7,20 @@ import 'theme_state.dart';
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   final ThemeRepository repository;
 
-  ThemeBloc(this.repository) : super(ThemeInitial()) {
-    on<ToggleThemeEvent>((event, emit) {
-      final currentTheme = repository.getTheme();
-      ThemeMode theme =
-          currentTheme == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
-      repository.updateTheme(theme);
+  ThemeBloc(this.repository) : super(ThemeInitial(ThemeMode.system)) {
+    on<InitializeThemeEvent>((event, emit) async {
+      final initialTheme = await repository.getTheme();
+      emit(ThemeValue(initialTheme));
+    });
+
+    on<ToggleThemeEvent>((event, emit) async {
+      final currentTheme = await repository.getTheme();
+      final theme =
+      currentTheme == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+      await repository.updateTheme(theme);
       emit(ThemeValue(theme));
     });
+
+    add(InitializeThemeEvent());
   }
 }

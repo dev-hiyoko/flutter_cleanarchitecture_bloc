@@ -6,12 +6,13 @@ class ThemeRepositoryImpl implements ThemeRepository {
   final ThemeDataSource _dataSource = ThemeDataSource();
 
   @override
-  ThemeMode getTheme() {
-    return _dataSource.getTheme();
+  Future<ThemeMode> getTheme() async {
+    return await _dataSource.getTheme();
   }
 
+
   @override
-  void updateTheme(ThemeMode value) {
+  Future<void> updateTheme(ThemeMode value) async {
     _dataSource.saveTheme(value);
   }
 }

@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeDataSource {
-  ThemeMode _theme = ThemeMode.system;
+  static const String themeModeKey = 'theme_mode';
 
-  ThemeMode getTheme() {
-    return _theme;
+  Future<ThemeMode> getTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    final loadedMode = prefs.getString(themeModeKey).toString().split('.').last;
+    ThemeMode theme;
+    if (loadedMode == "light") {
+      theme = ThemeMode.light;
+    } else if (loadedMode == "dark") {
+      theme = ThemeMode.dark;
+    }else {
+      theme = ThemeMode.system;
+    }
+    return theme;
   }
 
-  void saveTheme(ThemeMode value) {
-    _theme = value;
+  Future<void> saveTheme(ThemeMode value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(themeModeKey, value.toString());
   }
 }
