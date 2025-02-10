@@ -5,7 +5,7 @@ init: git/commit-template
 # flutter
 .PHONY: format
 format:
-	dart format $(find lib -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "oss_licenses.dart" \) ) --set-exit-if-changed
+	dart format `find lib -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "oss_licenses.dart" \)` --set-exit-if-changed
 
 .PHONY: lint
 lint:

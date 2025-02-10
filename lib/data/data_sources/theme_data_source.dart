@@ -12,7 +12,7 @@ class ThemeDataSource {
       theme = ThemeMode.light;
     } else if (loadedMode == "dark") {
       theme = ThemeMode.dark;
-    }else {
+    } else {
       theme = ThemeMode.system;
     }
     return theme;

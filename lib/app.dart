@@ -11,7 +11,7 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     // ThemeBloc
     final themeMode = context.select<ThemeBloc, ThemeMode?>(
-          (bloc) {
+      (bloc) {
         final state = bloc.state;
         return state.value;
       },
