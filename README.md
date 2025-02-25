@@ -1,10 +1,9 @@
 # flutter cleanarchitecture bloc sample
 
-[//]: # (todo router)
 [//]: # (todo entity + usecaseの作成)
-[//]: # (todo shared_preferences ローカルデータ)
 [//]: # (todo primaryなどの色の設定)
 [//]: # (todo 文字サイズ＋フォント+フォントfimily フォントfimilyに関してはローカライズ毎に)
+[//]: # (todo router)
 [//]: # (todo firebase)
 [//]: # (todo DateFormat)
 
@@ -28,7 +27,7 @@ lib/
 │   │   └── counter.dart
 │   └── usecases/                           // ユースケースを管理
 │       └── increment_counter.dart
-├── domain/                                 // localize
+├── l10n/                                   // localize
 ├── presentation/                           // 表示層。UIおよび状態管理を担当
 │   ├── bloc/                               // BLoCによる状態管理を実装
 │   │   └ counter/
@@ -37,6 +36,11 @@ lib/
 │   │       └── counter_state.dart          // CounterBlocの状態を定義
 │   ├── pages/                              // UI構成を管理
 │   │   └── counter_page.dart               // カウンター画面のUIを定義
+│   ├── screens/                            // 各ページ内の子画面（ボトムナビの各タブ）
+│   │   ├── home/
+│   │   │   ├── xxx_screen.dart
+│   │   │   └── yyy_screen.dart
+│   │   └── zzz_screen.dart
 │   └── widgets/                            // 共通ウィジェットを管理
 ├── app.dart                                // アプリのviewポイント
 └── main.dart                               // アプリのエントリーポイント
@@ -66,7 +70,35 @@ make gen
 
 このリポジトリではやらないので、アプリを作り出す前に行うべきもの  
 
-1. 環境を分ける
+1. アプリ名の変更
 
-   flavor + icon + splash + firebaseの設定を分けるように設定する  
+   ```shell
+   flutter pub run change_app_package_name:main com.example
+   ```
+
+   /android/app/build.gradle  
+   ```text
+   android {
+      namespace = "com.example"
+   }
+   ```
+   /android/app/src/main/AndroidManifest.xml
+   ※ _（アンダースコア）のみ使える  
+   ```text
+   <application android:label="アプリ名"></application>
+   ```
+   /ios/Runner.xcodeproj/project.pbxproj  
+   ```text
+   PRODUCT_BUNDLE_IDENTIFIER = com.example;
+   ```
+   /ios/Runner/Info.plist
+   ※ -（ハイフン）のみ使える
+   ```text
+   <key>CFBundleDisplayName</key>
+   <string>アプリ名</string>
+   ```
+
+2. 環境を分ける
+
+   flavor + icon + splash + firebase + appnameの設定を分けるように設定する  
 
